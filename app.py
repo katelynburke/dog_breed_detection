@@ -66,7 +66,7 @@ def success():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-        return render_template('success.html')    
+        return render_template('success.html', filename=filename)    
 # create route that renders about.html template
 @app.route("/about")
 def About():
