@@ -15,7 +15,7 @@ from flask import (
     redirect)
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-
+from flask import * 
 #################################################
 ## Database Connection using SQLAlchemy
 #################################################
@@ -43,16 +43,23 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 CORS(app)
 
-
 #################################################
 # Flask Routes
 #################################################
 
 # create route that renders index.html template
 @app.route("/")
-def home():
-    return render_template("index.html")
-
+# def home():
+#     return render_template("index.html")
+def upload():  
+    return render_template("index.html")  
+ 
+@app.route('/success', methods = ['POST'])  
+def success():  
+    if request.method == 'POST':  
+        f = request.files['file']  
+        f.save(f.filename)  
+        return render_template("success.html", name = f.filename)  
 # create route that renders about.html template
 @app.route("/about")
 def About():
