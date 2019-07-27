@@ -44,15 +44,16 @@
             <p class="card-text">Identify a dog's breed, temperament, find similar dogs, and more. Upload a photo or take a picture with your phone to try it..</p>
             <div class="imgbox">
               <img class="card-img" src="static/pets_header.jpg" alt="Header image">
+                <form action = "/success" method = "post" enctype="multipart/form-data">  
+                    <input type="file" name="file" />  
+                    <input type = "submit" value="Upload">  
+                </form>
             </div>
     </div>    
-    <h1>Dog Breed Detection</h1>
+    <!-- <h1>Dog Breed Detection</h1> -->
     
          
-    <form action = "/success" method = "post" enctype="multipart/form-data">  
-        <input type="file" name="file" />  
-        <input type = "submit" value="Upload">  
-    </form>  
+  
     
 </center>
     <!-- Script for D3.js  -->
