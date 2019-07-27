@@ -1,8 +1,9 @@
 //ADD URL DATA COMING IN FROM app.py
-var dataURL = ""; 
+// var dataURL = ""; 
 
-d3.json(dataURL).then(function(data) {
+// d3.json(dataURL).then(function(data) {
 
-    //WRITE CODE HERE FOR DISPLAYING DATA ON index.html
+//     //WRITE CODE HERE FOR DISPLAYING DATA ON index.html
     
-});
+// });
+

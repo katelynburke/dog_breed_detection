@@ -16,7 +16,7 @@
     <nav class="nav navbar">
         <div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ url_for('.home') }}">Home</a></li>    
+                <li class="active"><a href="{{ url_for('.upload') }}">Home</a></li>    
                 <li><a href="{{ url_for('.About') }}">About</a></li>
             </ul>
         </div>
@@ -24,10 +24,20 @@
     
      
     <h1>Wedding Weather</h1>
+    
+         
+    <form action = "/success" method = "post" enctype="multipart/form-data">  
+        <input type="file" name="file" />  
+        <input type = "submit" value="Upload">  
+    </form>  
         
     <!-- Script for D3.js  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			  crossorigin="anonymous"></script>
+    
     <!-- Script for app.js -->
     <script type="application/javascript" src="../static/js/app.js"></script> 
     
