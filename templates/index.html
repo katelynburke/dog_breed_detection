@@ -13,6 +13,22 @@
 </head>
 
 <body>
+
+    <div class="topnav">
+            <a class="active" href="/">Home</a>
+            <a href="/map">All Pets</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+     </div>
+    <!-- <nav>
+        <div class="topnav">
+            <a class="active" href="{{ url_for('.upload') }}">Home</a>
+            <a href="{{ url_for('.About') }}">About</a>
+          </div>
+    </nav> -->
+    
+     
+    <!-- <h1>Animals</h1>
     <nav class="nav navbar">
         <div>
             <ul class="nav navbar-nav">
@@ -20,17 +36,26 @@
                 <li><a href="{{ url_for('.About') }}">About</a></li>
             </ul>
         </div>
-    </nav>
-    
-     
-    <h1>Dog Breed Detection</h1>
+    </nav> -->
+    <center>
+    <div class="card-body">
+         
+            <h1 class="card-title">What breed is that dog?</h1>
+            <p class="card-text">Identify a dog's breed, temperament, find similar dogs, and more. Upload a photo or take a picture with your phone to try it..</p>
+            <div class="imgbox">
+              <img class="card-img" src="static/pets_header.jpg" alt="Header image">
+                <form action = "/success" method = "post" enctype="multipart/form-data">  
+                    <input type="file" name="file" />  
+                    <input type = "submit" value="Upload">  
+                </form>
+            </div>
+    </div>    
+    <!-- <h1>Dog Breed Detection</h1> -->
     
          
-    <form action = "/success" method = "post" enctype="multipart/form-data">  
-        <input type="file" name="file" />  
-        <input type = "submit" value="Upload">  
-    </form>  
-        
+  
+    
+</center>
     <!-- Script for D3.js  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>

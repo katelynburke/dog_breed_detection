@@ -16,6 +16,10 @@ from flask import (
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask import * 
+import os
+
+from flask import Flask,abort,render_template,request,redirect,url_for
+from werkzeug import secure_filename
 #################################################
 ## Database Connection using SQLAlchemy
 #################################################
@@ -42,7 +46,8 @@ from flask import *
 #################################################
 app = Flask(__name__)
 CORS(app)
-
+UPLOAD_FOLDER = './static/images'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
 #################################################
 # Flask Routes
 #################################################
@@ -57,9 +62,11 @@ def upload():
 @app.route('/success', methods = ['POST'])  
 def success():  
     if request.method == 'POST':  
-        f = request.files['file']  
-        f.save(f.filename)  
-        return render_template("success.html", name = f.filename)  
+        file = request.files['file']
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
+        return render_template('success.html', filename=filename)    
 # create route that renders about.html template
 @app.route("/about")
 def About():
