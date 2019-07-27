@@ -26,7 +26,7 @@ model = VGG19(include_top=True, weights='imagenet')
 image_size = (224, 224)
 
 # Load the image and resize to default image size
-image_path = os.path.join("images", "animal1.jpg")
+image_path = os.path.join("..", "images", "animal1.jpg")
 img = image.load_img(image_path, target_size=image_size)
 plt.imshow(img)
 
@@ -53,5 +53,5 @@ def predict(image_path):
     print('Predicted:', decode_predictions(predictions, top=3))
 
 # Make predictions on the dog photo
-image_path = os.path.join("images", "dog.jpeg")
+image_path = os.path.join("..", "images", "dog.jpeg")
 predict(image_path)
