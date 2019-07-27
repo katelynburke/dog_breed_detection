@@ -17,7 +17,8 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask import * 
 import os
-
+import module23
+import training_models
 from flask import Flask,abort,render_template,request,redirect,url_for
 from werkzeug import secure_filename
 #################################################
@@ -60,13 +61,16 @@ def upload():
     return render_template("index.html")  
  
 @app.route('/success', methods = ['POST'])  
-def success():  
+def success(): 
+    
     if request.method == 'POST':  
         file = request.files['file']
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-        return render_template('success.html', filename=filename)    
+            test = module23.add(filename) 
+            train = training_models.trainer(filename)
+        return render_template('success.html', filename=filename, test=test, train=train)    
 # create route that renders about.html template
 @app.route("/about")
 def About():
