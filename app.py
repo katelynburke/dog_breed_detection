@@ -68,7 +68,7 @@ def success():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-            test = module23.add(filename) 
+            #test = module23.add(filename) 
             train = training_models.trainer(filename)
         return render_template('success.html', filename=filename, test=test, train=train)    
 # create route that renders about.html template
