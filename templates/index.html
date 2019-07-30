@@ -15,10 +15,10 @@
 <body>
 
     <div class="topnav">
-            <a class="active" href="/">Home</a>
-            <a href="#allpets">All Pets</a>
+            <a class="active" href="{{ url_for('.upload') }}">Home</a>
+            <a href="{{ url_for('.Team') }}">Meet the Team </a>
             <a href="#contact">Contact</a>
-            <a href="/about">About</a>
+            <a href="{{ url_for('.About') }}">About</a>
      </div>
     <!-- <nav>
         <div class="topnav">

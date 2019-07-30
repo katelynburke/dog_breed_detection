@@ -68,7 +68,9 @@ def results():
 def About():
     return render_template("about.html")
 
-
+@app.route("/team")
+def Team():
+    return render_template("team.html")
 
 if __name__ == "__main__":
     app.debug = True
