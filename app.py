@@ -21,13 +21,15 @@ import module23
 import training_models
 from flask import Flask,abort,render_template,request,redirect,url_for
 from werkzeug import secure_filename
+from flask import Flask, session
 
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
 CORS(app)
-
+# secret key is needed for session
+app.secret_key = 'dljsaklqk24e21cjn!Ew@@dsa5'
 #################################################
 # Flask Routes
 #################################################
@@ -48,8 +50,18 @@ def success():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-            train = training_models.trainer(filename)
-        return render_template('success.html', filename=filename, train=train)    
+            #train = training_models.trainer(filename)
+            session["filename"] = filename
+        return render_template('success.html', filename=filename) #train=train   
+
+
+@app.route("/results", methods = ['POST'])
+def results():
+    fileNamefromSuccess =session.get("filename",None)
+    train = training_models.trainer(fileNamefromSuccess)
+    return render_template("results.html",fileNamefromSuccess=fileNamefromSuccess, train=train)
+
+
 # create route that renders about.html template
 @app.route("/about")
 def About():
