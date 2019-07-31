@@ -27,6 +27,9 @@ from flask import Flask, session
 # Flask Setup
 #################################################
 app = Flask(__name__)
+# app = Flask(__name__, 
+#             static_url_path='', 
+#             static_folder='wedding_weather/static')
 CORS(app)
 # secret key is needed for session
 app.secret_key = 'dljsaklqk24e21cjn!Ew@@dsa5'
