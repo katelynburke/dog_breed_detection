@@ -41,11 +41,11 @@ $(document).ready(function () {
   });
 
   function createChart(dataA, dataB) {
-    // d3.select('ul')
-    //   .selectAll('li')
-    //   .data(data)
-    //   .enter()
-    //   .append('li')
+    d3.select('ul')
+    .selectAll('li')
+    .data(data)
+    .enter()
+    .append('li')
 
     var svgWidth = 500;  
     var svgHeight = 300;
