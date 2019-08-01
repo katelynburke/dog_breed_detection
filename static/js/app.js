@@ -47,51 +47,35 @@ $(document).ready(function () {
     .enter()
     .append('li')
 
-    // Define SVG area dimensions
-    var svgWidth = 960;
-    var svgHeight = 660;
+    var svgWidth = 500;  
+    var svgHeight = 300;
 
-    // Define the chart's margins as an object
-    var chartMargin = {
-      top: 30,
-      right: 30,
-      bottom: 30,
-      left: 30
-    };
-
-    // Define dimensions of the chart area
-    var chartWidth = svgWidth - chartMargin.left - chartMargin.right;
-    var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
-
-    // Select body, append SVG area to it, and set the dimensions
-    var svg = d3
-      .select("#chart")
-      .append("svg")
-      .attr("height", svgHeight)
-      .attr("width", svgWidth);
-
-    // Append a group to the SVG area and shift ('translate') it to the right and down to adhere
-    // to the margins set in the "chartMargin" object.
-    var chartGroup = svg.append("g")
-      .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
-      
-    var barSpacing = 10; // desired space between each bar
-    var scaleY = 10; // 10x scale on rect height
+    var svg = d3.select('svg')  
+      .attr("width", svgWidth)  
+      .attr("height", svgHeight)  
+      .attr("class", "bar-chart");
     
-    
-    // Create a 'barWidth' variable so that the bar chart spans the entire chartWidth.
-    var barWidth = (chartWidth - (barSpacing * (dataB.length - 1))) / dataB.length;
-    // Create code to build the bar chart using the tvData.
-    chartGroup.selectAll(".bar")
-      .data(dataB)
-      .enter()
-      .append("rect")
-      .classed("bar", true)
-      // .attr("width", d => barWidth)
-      // .attr("height", d => d.hours * scaleY)
-      // .attr("x", (d, i) => i * (barWidth + barSpacing))
-      // .attr("y", d => chartHeight - d.hours * scaleY);
+      var barPadding = 5;  
+      var barWidth = (svgWidth / dataset.length);
       
+      var barChart = svg.selectAll("rect")  
+          .data(dataB)  
+          .enter()  
+          .append("rect")  
+          .attr("y", function(d) {  
+              return svgHeight - d  
+          })  
+          .attr("height", function(d) {  
+              return d;  
+          })  
+          .attr("width", barWidth - barPadding)  
+          .attr("transform", function (d, i) {  
+               var translate = [barWidth * i, 0];  
+               return "translate("+ translate +")";  
+          });
+              
+    
+
  }
   
-
+//  https://www.freecodecamp.org/news/how-to-create-your-first-bar-chart-with-d3-js-a0e8ea2df386/
