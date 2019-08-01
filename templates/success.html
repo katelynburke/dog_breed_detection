@@ -24,12 +24,17 @@
     <div>
         <input id ="target" type="button" value="Create Chart"/>
     </div>
+    <div>
+        <ul>
 
+        </ul>
+    </div>
     <!-- <div class='container'>
         <h3>Test</h3>
         <button onclick="subForm()">Run Code Test</button>
     </div> -->
     
+
 
 <!-- Script for jquery -->
     
@@ -45,6 +50,17 @@
     <!-- USE THIS WHEN app.py does not have static path -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
 
+
+<!-- Script for D3.js  -->
+    
+    <!-- USE THIS WHEN app.py does not have static path -->
+    <!-- <script src="/static/js/d3.min.js"></script> -->
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script> -->
+    
+    <!-- USE THIS WHEN app.py does not have static path -->
+    <script src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
+
 <!-- Script for app.js -->
     
     <!-- USE THIS when app.py has static path -->
@@ -53,7 +69,7 @@
 
     <!-- USE THIS WHEN app.py does not have static path -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
-
+    
     
 </body>  
 </html>  
