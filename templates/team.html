@@ -1,6 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!-- <head> -->
+        <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <style>
+                html {
+                  box-sizing: border-box;
+                }
+                
+                *, *:before, *:after {
+                  box-sizing: inherit;
+                }
+                
+                .column {
+                  float: left;
+                  width: 33.3%;
+                  margin-bottom: 16px;
+                  padding: 0 8px;
+                }
+                
+                @media screen and (max-width: 650px) {
+                  .column {
+                    width: 100%;
+                    display: block;
+                  }
+                }
+                
+                .card {
+                  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                }
+                
+                .container {
+                  padding: 0 16px;
+                }
+                
+                .container::after, .row::after {
+                  content: "";
+                  clear: both;
+                  display: table;
+                }
+                
+                .title {
+                  color: grey;
+                }
+                
+                .button {
+                  border: none;
+                  outline: 0;
+                  display: inline-block;
+                  padding: 8px;
+                  color: white;
+                  background-color: #000;
+                  text-align: center;
+                  cursor: pointer;
+                  width: 100%;
+                }
+                
+                .button:hover {
+                  background-color: #555;
+                }
+                </style>
+                </head>
     <meta charset="utf-8">
     <title>Animal Identification</title>
     <!-- Link and Script for Bootstrap -->
@@ -10,7 +70,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Link for our style.css (needs to go after bootstrap)-->
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-</head>
+<!-- </head> -->
 
 <body>
         <div class="topnav">
@@ -20,17 +80,51 @@
                 <a class="active" href="{{ url_for('.About') }}">About</a>
          </div>
         
-         <div class="card">
-                <img src="/static/images/rory-paws.jpg" alt="Rory" style="width:100%">
-                <div class="container">
-                  <h4><b>Rory Burke</b></h4> 
-                  <p>CEO</p> 
-                </div>
-              </div>
-                
-                 
-<h1>About that Animals</h1>
-                    
+         <h2>Responsive "Meet The Team" Section</h2>
+         <p>Resize the browser window to see the effect.</p>
+         <br>
+         
+         <div class="row">
+           <div class="column">
+             <div class="card">
+               <img src="/static/images/rory-paws.jpg" alt="Jane" style="width:100%">
+               <div class="container">
+                 <h2>Rory Burke</h2>
+                 <p class="title">CEO </p>
+                 <p>Loves peaunut butter & chewing on everything</p>
+                 <p>rory@peanutbutter.com</p>
+                 <p><button class="button">Contact</button></p>
+               </div>
+             </div>
+           </div>
+         
+           <div class="column">
+             <div class="card">
+               <img src="/static/images/autumn.jpg" alt="Autumn" style="width:100%">
+               <div class="container">
+                 <h2>Autumn Sahni</h2>
+                 <p class="title">Art Director</p>
+                 <p>Cuddles Cuddles & More Cuddles.</p>
+                 <p>Autumn@morepeanutbutter.com</p>
+                 <p><button class="button">Contact</button></p>
+               </div>
+             </div>
+           </div>
+           <div class="column">
+             <div class="card">
+               <img src="/static/images/popcorn.jpg" alt="popcorn" style="width:100%">
+               <div class="container">
+                 <h2>Popcorn Hu</h2>
+                 <p class="title">Lead Product Manager</p>
+                 <p>Love me some popcorn! </p>
+                 <p>popcorn@evenmorepeanutbutter.com</p>
+                 <p><button class="button">Contact</button></p>
+               </div>
+             </div>
+           </div>
+         </div>
+         
+                            
 <!-- Script for D3.js  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
