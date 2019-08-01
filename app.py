@@ -59,8 +59,8 @@ def success():
 def results():
     fileNamefromSuccess =session.get("filename",None)
     train = training_models.trainer(fileNamefromSuccess)
-    return render_template("results.html",fileNamefromSuccess=fileNamefromSuccess, train=train)
-
+    #return render_template("results.html",fileNamefromSuccess=fileNamefromSuccess, train=train)
+    return  jsonify({'results': str(train)})
 
 # create route that renders about.html template
 @app.route("/about")
