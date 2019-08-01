@@ -15,10 +15,10 @@
 <body>
 
     <div class="topnav">
-            <a class="active" href="/">Home</a>
-            <a href="#allpets">All Pets</a>
+            <a class="active" href="{{ url_for('.upload') }}">Home</a>
+            <a href="{{ url_for('.Team') }}">Meet the Team </a>
             <a href="#contact">Contact</a>
-            <a href="/about">About</a>
+            <a href="{{ url_for('.About') }}">About</a>
      </div>
     <!-- <nav>
         <div class="topnav">
@@ -68,8 +68,9 @@
 			  crossorigin="anonymous"></script>
     
     <!-- Script for app.js -->
-    <script type="application/javascript" src="../static/js/app.js"></script> 
-    
-    
+    <!-- <script type="application/javascript" src="../static/js/app.js"></script>  -->
+    <!-- Script for jquery -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     </body>
 </html>

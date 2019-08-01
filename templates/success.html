@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <head>  
+
+<head>  
     <title>success</title>  
-    </head>  
-    <body>  
+</head>  
+<body>  
 
         <div class="topnav">
             <a href="/">Home</a>
@@ -14,10 +15,45 @@
         </div>
     <p>You have successfully uploaded the File! </p>  
     <p>File Name: {{filename}}</p>  
-    <p>Train: {{train}}</p>
-    <form action = "/results" method = "post" enctype="multipart/form-data">  
+    <p id="data">Data: {{train}}</p>
+    <!-- <form  id = "myForm" method = "post" enctype="multipart/form-data">    -->
+        <!-- action = "/results" -->
         <!-- <input type="file" name="file" />   -->
-        <input type = "submit" value="Get Results">  
-    </form>
-    </body>  
+        <!-- <input type = "submit" value="Get Results">  
+    </form>  -->
+    <div>
+        <input id ="target" type="button" value="Create Chart"/>
+    </div>
+
+    <!-- <div class='container'>
+        <h3>Test</h3>
+        <button onclick="subForm()">Run Code Test</button>
+    </div> -->
+    
+
+<!-- Script for jquery -->
+    
+    <!-- THESE NEVER WORKED -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous"></script> -->
+    
+    <!-- USE THIS when app.py has static path -->
+    <!-- <script type="application/javascript" src="/static/js/jquery-3.4.1.min.js"></script>  -->
+
+    <!-- USE THIS WHEN app.py does not have static path -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+
+<!-- Script for app.js -->
+    
+    <!-- USE THIS when app.py has static path -->
+    <!-- <script type="application/javascript" src="/static/js/app.js"></script>  -->
+    <!-- src="../static/js/app.js -->
+
+    <!-- USE THIS WHEN app.py does not have static path -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    
+</body>  
 </html>  

@@ -27,6 +27,9 @@ from flask import Flask, session
 # Flask Setup
 #################################################
 app = Flask(__name__)
+# app = Flask(__name__, 
+#             static_url_path='', 
+#             static_folder='wedding_weather/static')
 CORS(app)
 # secret key is needed for session
 app.secret_key = 'dljsaklqk24e21cjn!Ew@@dsa5'
@@ -50,16 +53,17 @@ def success():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-            #train = training_models.trainer(filename)
+            train = training_models.trainer(filename)
             session["filename"] = filename
-        return render_template('success.html', filename=filename) #train=train   
+        return render_template('success.html', filename=filename, train=train )   
 
 
 @app.route("/results", methods = ['POST'])
 def results():
-    fileNamefromSuccess =session.get("filename",None)
-    train = training_models.trainer(fileNamefromSuccess)
-    #return render_template("results.html",fileNamefromSuccess=fileNamefromSuccess, train=train)
+    if request.method == 'POST': 
+        fileNamefromSuccess =session.get("filename",None)
+        train = training_models.trainer(fileNamefromSuccess)
+        #return render_template("results.html",fileNamefromSuccess=fileNamefromSuccess, train=train)
     return  jsonify({'results': str(train)})
 
 # create route that renders about.html template
@@ -67,7 +71,9 @@ def results():
 def About():
     return render_template("about.html")
 
-
+@app.route("/team")
+def Team():
+    return render_template("team.html")
 
 if __name__ == "__main__":
     app.debug = True
