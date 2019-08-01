@@ -41,12 +41,13 @@ $(document).ready(function () {
   });
 
   function createChart(dataA, dataB) {
-    d3.select('ul')
-    .selectAll('li')
-    .data(data)
-    .enter()
-    .append('li')
-
+    // d3.select('ul')
+    //   .selectAll('li')
+    //   .data(dataB)
+    //   .enter()
+    //   .append('li')
+    // console.log(dataB)
+    
     var svgWidth = 500;  
     var svgHeight = 300;
 
@@ -55,21 +56,21 @@ $(document).ready(function () {
       .attr("height", svgHeight)  
       .attr("class", "bar-chart");
     
-      var barPadding = 5;  
-      var barWidth = (svgWidth / dataset.length);
+    var barPadding = 3;  
+    var barWidth = (svgWidth / dataB.length);
       
-      var barChart = svg.selectAll("rect")  
+    var barChart = svg.selectAll("rect")  
           .data(dataB)  
           .enter()  
           .append("rect")  
-          .attr("y", function(d) {  
-              return svgHeight - d  
+          .attr("y", function(data) {  
+              return svgHeight - data  
           })  
-          .attr("height", function(d) {  
-              return d;  
+          .attr("height", function(data) {  
+              return data;  
           })  
           .attr("width", barWidth - barPadding)  
-          .attr("transform", function (d, i) {  
+          .attr("transform", function (data, i) {  
                var translate = [barWidth * i, 0];  
                return "translate("+ translate +")";  
           });
