@@ -1,4 +1,5 @@
 ## Dog Breed Detection
+By Mansi Sahni, Lisa Hu, Katelyn Burke, Karen Gutzman, and Maralee Capella
 
 ![dogs](https://github.com/katelynburke/dog_breed_detection/blob/master/Images/doggos.png)
 
