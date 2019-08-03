@@ -15,24 +15,30 @@
         </div>
     <p>You have successfully uploaded the File! </p>  
     <p>File Name: {{filename}}</p>  
-    <p id="data">Data: {{train}}</p>
+    <p id="data">Prediction: {{train}}</p>
     <!-- <form  id = "myForm" method = "post" enctype="multipart/form-data">    -->
         <!-- action = "/results" -->
         <!-- <input type="file" name="file" />   -->
         <!-- <input type = "submit" value="Get Results">  
     </form>  -->
     <div>
-        <input id ="target" type="button" value="Create Chart"/>
+        <input id ="target" type="button" value="Create Prediction Chart"/>
     </div>
     <div>
         <ul>
 
         </ul>
     </div>
+    <div id='layout'>
+        <!-- <h2>Bar chart example</h2> -->
+        <div id='container'>
+          <svg ></svg>
+        </div>
+      </div>
 
-    <svg>
+    <!-- <svg >
         
-    </svg>
+    </svg> -->
     <!-- <div class='container'>
         <h3>Test</h3>
         <button onclick="subForm()">Run Code Test</button>
